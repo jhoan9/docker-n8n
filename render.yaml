@@ -1,4 +1,3 @@
-# Exported from Render on 2025-11-11T01:15:12Z
 version: "1"
 projects:
 - name: WorkFlows
@@ -7,35 +6,39 @@ projects:
     services:
     - type: web
       name: n8n
-      runtime: node
+      env: docker
       repo: https://github.com/jhoan9/docker-n8n
       plan: free
-      envVars:
-      - key: DB_POSTGRESDB_SSL_ENABLED
-        sync: false
-      - key: N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS
-        sync: false
-      - key: DB_POSTGRES_SSL_REJECT_UNAUTHORIZED
-        sync: false
-      - key: DB_POSTGRESDB_USER
-        sync: false
-      - key: DB_POSTGRESDB_PORT
-        sync: false
-      - key: DB_POSTGRESDB_PASSWORD
-        sync: false
-      - key: DB_POSTGRESDB_HOST
-        sync: false
-      - key: N8N_ENCRYPTION_KEY
-        sync: false
-      - key: DB_POSTGRESDB_DATABASE
-        sync: false
-      - key: DB_TYPE
-        sync: false
-      - key: WEBHOOK_URL
-        sync: false
-      - key: NODE_VERSION
-        sync: false
       region: oregon
-      buildCommand: pnpm install --frozen-lockfile; pnpm run build
-      startCommand: pnpm run start
-      autoDeployTrigger: commit
+      autoDeploy: true
+      envVars:
+        - key: N8N_PORT
+          value: 10000
+        - key: PORT
+          value: 10000
+        - key: GENERIC_TIMEZONE
+          value: America/Bogota
+        - key: N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS
+          value: true
+        - key: DB_TYPE
+          value: postgresdb
+        - key: DB_POSTGRESDB_HOST
+          sync: false
+        - key: DB_POSTGRESDB_PORT
+          value: 5432
+        - key: DB_POSTGRESDB_DATABASE
+          sync: false
+        - key: DB_POSTGRESDB_USER
+          sync: false
+        - key: DB_POSTGRESDB_PASSWORD
+          sync: false
+        - key: N8N_ENCRYPTION_KEY
+          sync: false
+        - key: WEBHOOK_URL
+          sync: false
+        - key: N8N_BASIC_AUTH_ACTIVE
+          value: true
+        - key: N8N_BASIC_AUTH_USER
+          sync: false
+        - key: N8N_BASIC_AUTH_PASSWORD
+          sync: false
