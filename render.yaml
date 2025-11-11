@@ -11,34 +11,3 @@ projects:
       plan: free
       region: oregon
       autoDeploy: true
-      envVars:
-        - key: N8N_PORT
-          value: 10000
-        - key: PORT
-          value: 10000
-        - key: GENERIC_TIMEZONE
-          value: America/Bogota
-        - key: N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS
-          value: true
-        - key: DB_TYPE
-          value: postgresdb
-        - key: DB_POSTGRESDB_HOST
-          sync: false
-        - key: DB_POSTGRESDB_PORT
-          value: 5432
-        - key: DB_POSTGRESDB_DATABASE
-          sync: false
-        - key: DB_POSTGRESDB_USER
-          sync: false
-        - key: DB_POSTGRESDB_PASSWORD
-          sync: false
-        - key: N8N_ENCRYPTION_KEY
-          sync: false
-        - key: WEBHOOK_URL
-          sync: false
-        - key: N8N_BASIC_AUTH_ACTIVE
-          value: true
-        - key: N8N_BASIC_AUTH_USER
-          sync: false
-        - key: N8N_BASIC_AUTH_PASSWORD
-          sync: false
