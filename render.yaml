@@ -1,0 +1,41 @@
+# Exported from Render on 2025-11-11T01:15:12Z
+version: "1"
+projects:
+- name: WorkFlows
+  environments:
+  - name: Production
+    services:
+    - type: web
+      name: n8n
+      runtime: node
+      repo: https://github.com/jhoan9/docker-n8n
+      plan: free
+      envVars:
+      - key: DB_POSTGRESDB_SSL_ENABLED
+        sync: false
+      - key: N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS
+        sync: false
+      - key: DB_POSTGRES_SSL_REJECT_UNAUTHORIZED
+        sync: false
+      - key: DB_POSTGRESDB_USER
+        sync: false
+      - key: DB_POSTGRESDB_PORT
+        sync: false
+      - key: DB_POSTGRESDB_PASSWORD
+        sync: false
+      - key: DB_POSTGRESDB_HOST
+        sync: false
+      - key: N8N_ENCRYPTION_KEY
+        sync: false
+      - key: DB_POSTGRESDB_DATABASE
+        sync: false
+      - key: DB_TYPE
+        sync: false
+      - key: WEBHOOK_URL
+        sync: false
+      - key: NODE_VERSION
+        sync: false
+      region: oregon
+      buildCommand: pnpm install --frozen-lockfile; pnpm run build
+      startCommand: pnpm run start
+      autoDeployTrigger: commit
